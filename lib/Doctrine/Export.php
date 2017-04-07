@@ -44,7 +44,8 @@ class Doctrine_Export extends Doctrine_Connection_Module
         'date'      => '1970-01-01',
         'clob'      => '',
         'blob'      => '',
-        'string'    => ''
+        'string'    => '',
+        'enum'      => ''
     );
 
     /**
@@ -769,7 +770,6 @@ class Doctrine_Export extends Doctrine_Connection_Module
 
                 if ($field['default'] === '' &&
                    ($this->conn->getAttribute(Doctrine_Core::ATTR_PORTABILITY) & Doctrine_Core::PORTABILITY_EMPTY_TO_NULL)) {
-                    $field['default'] = null;
                 }
             }
 
