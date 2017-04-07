@@ -305,6 +305,11 @@ class Doctrine_DataDict_Mysql extends Doctrine_DataDict
                 $type[] = 'integer';
                 $unsigned = preg_match('/ unsigned/i', $field['type']);
                 $length = 4;
+
+                if (preg_match('/int\(([0-9]+)\)/i', $field['type'], $matches)) {
+                    $length = $matches[1];
+                }
+
             break;
             case 'bigint':
                 $type[] = 'integer';
